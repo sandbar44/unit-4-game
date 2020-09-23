@@ -1,12 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Wars RPG</title>
+
+    <!-- Reset CSS File -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom Styling -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&display=swap">
+
 </head>
 
 <body>
-    
+
+    <!--
+    Psuedo Code
+
+    === Layout ===
+    *** Stack cards ***
+    Header: Star Wars RPG
+    Characters to select: Select a character to begin | 4 characters
+    Your Character: 1 character
+    Enemies Available to Attack: 3 characters
+    Fight Section:
+    Attack Button
+    Defender
+    Fight Description + Restart button
+-->
+
+    <!-- Overall Bootstrap Grid -->
+    <div class="container">
+
+        <!-- Header Title -->
+        <div class="row" id="header-title">
+            <h1>Star Wars RPG!</h1>
+        </div>
+
+        <!-- Select Characters -->
+        <div class="row" id="select-char-div">
+            <div class="card">
+                <div class="char-name">Rey</div>
+                <div class="char-img">
+                    <img class="select-char-img" id="char2" src="assets/images/rey.jpg"></img>
+                </div>
+                <div class="hp">120</div>
+            </div>
+            <div class="card">
+                <div class="char-name">Boba Fett</div>
+                <div class="char-img">
+                    <img class="select-char-img" id="char1" src="assets/images/bobafett.jpg"></img>
+                </div>
+                <div class="hp">100</div>
+            </div>
+            <div class="card">
+                <div class="char-name">Count Dooku</div>
+                <div class="char-img">
+                    <img class="select-char-img" id="char3" src="assets/images/countdooku.jpg"></img>
+                </div>
+                <div class="hp">150</div>
+            </div>
+            <div class="card">
+                <div class="char-name">Darth Maul</div>
+                <div class="char-img">
+                    <img class="select-char-img" id="char4" src="assets/images/darthmaul.jpeg"></img>
+                </div>
+                <div class="hp">100</div>
+            </div>
+
+        </div>
+
+        <!-- Your Character -->
+        <div class="row" id="your-char">
+        </div>
+
+        <!-- Available Enemies -->
+        <div class="row" id="avail-enemies">
+        </div>
+
+        <!-- Fight Section -->
+        <div class="row" id="fight">
+        </div>
+
+        <!-- Defender -->
+        <div class="row" id="defender">
+        </div>
+
+        <!-- Fight Description -->
+        <div class="row" id="fight-desc">
+        </div>
+
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+
 </body>
+
 </html>

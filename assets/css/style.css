@@ -1,0 +1,38 @@
+/* 
+    Psuedo Code
+    Main
+    [] Background
+    [] Font
+
+    Character styles
+    [] Start game
+    [] Your character
+    [] Enemies to attack
+    [] Defender
+
+*/
+
+/* General */
+
+body {
+    /* Typography */
+    font-family: 'Bungee', cursive;
+    /* Visual */
+    background: url("../images/star-wars-destroyer-bridge.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000000;
+}
+
+/* Character Styles */
+.select-char-img {
+    width: 120px;
+    height: 80px;
+    padding: 2px;
+    align-content:center;
+}
+
+.char-name, .char-img, .hp {
+    text-align:center;
+    width:150px;
+}
