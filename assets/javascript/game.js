@@ -1,21 +1,126 @@
 // Psuedo Code
 // 
+
+$(document).ready(function() {
+
+
+// Character objects
+// [] Name
+// [] Image
+// [] HP
+// [] Attack Power (base)
+// [] Counter Attack Power (enemy)
+// [] Attack Power (updated)
+// 
+
+// GLOBAL VARIABLES
+
+var hero = "";
+var defender = "";
+var enemy = [];
+var enemy1 = "";
+var enemy2 = "";
+var enemy3 = "";
+
+var heroID = "";
+var enemyID = "";
+
+var baseAP = 10;
+var counterAP = 5;
+var updateAP = 20;
+
+var chars = {
+
+	char1: {
+		name: "Rey"
+	},
+
+	char2: {
+		name: "Boba Fett"
+	},
+
+	char3: {
+		name: "Count Dooku"
+	},
+
+	char4: {
+		name: "Darth Maul"
+	}
+
+}
+
+
 // Start game
 // [] All characters available
 // [] Full health
 // [] Reset hero attack power = base attack power
 // [] Starting instructions
 // [] Disable Attack button
-// 
+
+	// console.log(chars)
+	// console.log(chars.length)
+
+	// for (var i = 0; i < chars.length; i++) {
+	// 	alert("for loop")
+	// 	var charBtn = $("<button>");
+	// 	charBtn.attr("char-name", chars[i]);
+	// 	charBtn.text(chars[i]);
+ //        $("#select-char-div").append(charBtn);
+ //        console.log(charBtn);
+	// };
+
+
 // Click a character
 // [] Move clicked character to Your Character section
 // [] Move remaining characters to Enemies Available to Attack
 // [] Update instructions
-// 
+
+$(".select-char").on("click", function() {
+	alert("hero clicked!");
+	if(hero == "") {
+		console.log(this);
+		hero = $(this);
+		hero.removeClass("select-char");
+		$(hero).appendTo($("#your-char"));
+		heroID = $(hero).attr("id");
+		console.log("heroID = " + heroID);
+
+		for (var i = 1; i < 5; i++) {
+			var enemy = $("#char"+[i]);
+			enemyID = $(enemy).attr("id");
+			if (enemyID != heroID) {
+				enemy.removeClass("select-char");
+				enemy.addClass("enemy-char");
+				$("#avail-enemies").append(enemy);
+			} 
+		}
+
+		// $("#select-char-div").appendTo($("#avail-enemies"));
+		$("#instructions").html("Select an enemy to fight!");
+
+	}
+});
+
 // Click enemy to attack
 // [] Move clicked enemy to Defender 
 // [] Clear fight description
 // [] Enable Attack button
+
+$(".enemy-char").on("click", function() {
+	alert("enemy clicked!");
+	if(hero != "" && defender == "") {
+		console.log(this);
+		defender = $(this);
+		defender.removeClass("enemy-char");
+		$(defender).appendTo($("#defender"));
+		defenderID = $(defender).attr("id");
+		console.log("defenderID = " + defenderID);
+		}
+
+		// $("#select-char-div").appendTo($("#avail-enemies"));
+		$("#instructions").html("Attack!");
+});
+
 // 
 // Click Attack button
 // [] If no enemy is in Defender area:
@@ -51,13 +156,5 @@
 // Click Restart button
 // [] Start game function
 // 
-// Character objects
-// [] Name
-// [] Image
-// [] HP
-// [] Attack Power (base)
-// [] Counter Attack Power (enemy)
-// [] Attack Power (updated)
 // 
-// 
-// 
+})

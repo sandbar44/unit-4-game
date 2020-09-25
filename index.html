@@ -37,57 +37,70 @@
     <div class="container">
 
         <!-- Header Title -->
-        <div class="row" id="header-title">
-            <h1>Star Wars RPG!</h1>
-        </div>
+      <div class="jumbotron" id="header-title">
+        <h1 class="text-center">Star Wars RPG!</h1>
+        <h4 class="text-center" id="instructions">Select a character to begin.</h4>
+      </div>
 
         <!-- Select Characters -->
         <div class="row" id="select-char-div">
-            <div class="card">
+            <button class="card select-char" id="char1" >
                 <div class="char-name">Rey</div>
                 <div class="char-img">
-                    <img class="select-char-img" id="char2" src="assets/images/rey.jpg"></img>
+                    <img class="select-char-img" src="assets/images/rey.jpg"></img>
                 </div>
                 <div class="hp">120</div>
-            </div>
-            <div class="card">
+            </button>
+            <button class="card select-char" id="char2">
                 <div class="char-name">Boba Fett</div>
                 <div class="char-img">
-                    <img class="select-char-img" id="char1" src="assets/images/bobafett.jpg"></img>
+                    <img class="select-char-img" src="assets/images/bobafett.jpg"></img>
                 </div>
                 <div class="hp">100</div>
-            </div>
-            <div class="card">
+            </button>
+            <button class="card select-char" id="char3">
                 <div class="char-name">Count Dooku</div>
                 <div class="char-img">
-                    <img class="select-char-img" id="char3" src="assets/images/countdooku.jpg"></img>
+                    <img class="select-char-img" src="assets/images/countdooku.jpg"></img>
                 </div>
                 <div class="hp">150</div>
-            </div>
-            <div class="card">
+            </button>
+            <button class="card select-char" id="char4">
                 <div class="char-name">Darth Maul</div>
                 <div class="char-img">
-                    <img class="select-char-img" id="char4" src="assets/images/darthmaul.jpeg"></img>
+                    <img class="select-char-img" src="assets/images/darthmaul.jpeg"></img>
                 </div>
                 <div class="hp">100</div>
-            </div>
+            </button>
 
         </div>
 
         <!-- Your Character -->
-        <div class="row" id="your-char">
+        <div class="row">
+            <div id="your-char">
+                <h4 class="bg-light rounded">Your Character</h4>
+            </div>
         </div>
 
         <!-- Available Enemies -->
-        <div class="row" id="avail-enemies">
+        <div class="row">
+            <div id="avail-enemies">
+                <h4 class="bg-light rounded">Available Enemies</h4>
+            </div>
         </div>
 
         <!-- Fight Section -->
-        <div class="row" id="fight">
+        <div class="row">
+            <div id="fight">
+                <h4 class="bg-light rounded">Fight Section</h4>
+            </div>
         </div>
 
         <!-- Defender -->
         <div class="row" id="defender">
+            <div id="defender">
+                <h4 class="bg-light rounded"><h4>Defender</h4> 
+            </div>
         </div>
 
         <!-- Fight Description -->
@@ -99,6 +112,8 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
 
+    <!-- Custom Javascript -->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 
