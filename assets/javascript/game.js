@@ -75,12 +75,9 @@ var chars = {
 // [] Move remaining characters to Enemies Available to Attack
 // [] Update instructions
 
-$(".select-char").on("click", function() {
-	alert("hero clicked!");
+$("#select-char-div").on("click", ".select-char", function() {
 	if(hero == "") {
-		console.log(this);
 		hero = $(this);
-		hero.removeClass("select-char");
 		$(hero).appendTo($("#your-char"));
 		heroID = $(hero).attr("id");
 		console.log("heroID = " + heroID);
@@ -89,13 +86,11 @@ $(".select-char").on("click", function() {
 			var enemy = $("#char"+[i]);
 			enemyID = $(enemy).attr("id");
 			if (enemyID != heroID) {
-				enemy.removeClass("select-char");
-				enemy.addClass("enemy-char");
 				$("#avail-enemies").append(enemy);
+				console.log(enemy)
 			} 
 		}
 
-		// $("#select-char-div").appendTo($("#avail-enemies"));
 		$("#instructions").html("Select an enemy to fight!");
 
 	}
@@ -106,19 +101,18 @@ $(".select-char").on("click", function() {
 // [] Clear fight description
 // [] Enable Attack button
 
-$(".enemy-char").on("click", function() {
+$("#avail-enemies").on("click", ".select-char", function() {
 	alert("enemy clicked!");
 	if(hero != "" && defender == "") {
-		console.log(this);
 		defender = $(this);
-		defender.removeClass("enemy-char");
 		$(defender).appendTo($("#defender"));
 		defenderID = $(defender).attr("id");
 		console.log("defenderID = " + defenderID);
 		}
 
-		// $("#select-char-div").appendTo($("#avail-enemies"));
 		$("#instructions").html("Attack!");
+
+		$("#fight").append("<button>Attack</button>");
 });
 
 // 
