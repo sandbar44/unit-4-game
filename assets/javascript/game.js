@@ -30,30 +30,30 @@ var chars = {
 		origAP: 8,
 		hp: 120,
 		ap: 8,
-		cap: 24
+		cap: 10
 	},
 	char2: {
 		name: "Boba Fett",
 		origHP: 100,
-		origAP: 10,
+		origAP: 8,
 		hp: 100,
-		ap: 10,
+		ap: 8,
 		cap: 5
 	},
 	char3: {
 		name: "Count Dooku",
 		origHP: 150,
-		origAP: 10,
+		origAP: 5,
 		hp: 150,
-		ap: 10,
+		ap: 5,
 		cap: 20
 	},
 	char4: {
 		name: "Darth Maul",
-		origHP: 180,
-		origAP: 12,
-		hp: 180,
-		ap: 12,
+		origHP: 170,
+		origAP: 3,
+		hp: 170,
+		ap: 3,
 		cap: 25
 	}
 }
@@ -80,6 +80,7 @@ function startGame() {
 
 	// Reset character formatting
 	$(".select-char")
+		.addClass("btn-light")
 		.removeClass("btn-success btn-primary btn-danger")
 		.removeAttr("disabled style");
 
@@ -97,12 +98,12 @@ function startGame() {
 	defenderStats = {};
 
 	for (var i = 1; i < 5; i++) {
-		char = ("char"+[i]);
+		char = ("char" + [i]);
 		chars[char].hp = chars[char].origHP;
 		chars[char].ap = chars[char].origAP;
-		$("#char"+[i]+"-hp").html(chars[char].origHP);
+		$("#char" + [i] + "-hp").html(chars[char].origHP);
 	}
-	
+
 	// Starting instructions
 	$("#instructions").html("Select a character to begin.")
 
@@ -172,7 +173,7 @@ $(document).ready(function () {
 		if (hero === "") {
 			// Move clicked character to Your Character section
 			hero = $(this);
-			hero.addClass("btn-success").attr("disabled", true);
+			hero.removeClass("btn-light").addClass("btn-success").attr("disabled", true);
 			$("#your-char").append($(hero));
 			heroID = $(hero).attr("id");
 
@@ -181,7 +182,7 @@ $(document).ready(function () {
 				enemy = $("#char" + [i]);
 				enemyID = $(enemy).attr("id");
 				if (enemyID !== heroID) {
-					enemy.addClass("btn-primary");
+					enemy.removeClass("btn-light").addClass("btn-primary");
 					$("#avail-enemies").append(enemy);
 					remEnemies++;
 				}
@@ -209,25 +210,24 @@ $(document).ready(function () {
 		if (hero !== "" && defender === "") {
 			// Move clicked enemy to Defender 
 			defender = $(this);
-			defender.addClass("btn-danger").attr("disabled", true);
+			defender.removeClass("btn-light").addClass("btn-danger").attr("disabled", true);
 			$("#defender").append($(defender));
 			defenderID = $(defender).attr("id");
 			$(".attack").show();
+
+			// Clear fight description
+			$("#fight-desc").hide().html("")
+
+			// Enable Attack button
+			$("#instructions").html("Attack!");
+
+			// Set Defender stats
+			defenderStats = chars[defenderID]
+
+			console.log(`defenderID = ${defenderID} | ${defenderStats.name}`);
+			console.log(defenderStats);
 		}
-
-		// Clear fight description
-		$("#fight-desc").hide().html("")
-
-		// Enable Attack button
-		$("#instructions").html("Attack!");
-
-		// Set Defender stats
-		defenderStats = chars[defenderID]
-
-		console.log(`defenderID = ${defenderID} | ${defenderStats.name}`);
-		console.log(defenderStats);
-
-	});
+	})
 
 	// Click Attack button
 	// [X] If no enemy is in Defender area:
@@ -273,7 +273,7 @@ $(document).ready(function () {
 		// Else if defender exists
 		else if (hero !== "" && defender !== "") {
 			// Decrease defender HP by hero attack power + html
-			updateDefHP()
+			updateDefHP();
 
 			// If defender HP is <= 0 (DEFENDER DEFEATED)
 			if (defenderStats.hp <= 0) {
@@ -287,7 +287,7 @@ $(document).ready(function () {
 				// If Enemies Available = 0: (WIN GAME)
 				if (remEnemies === 0) {
 					// Update fight description
-					$("#fight-desc").html(
+					$("#fight-desc").show().html(
 						`<p>You won!!! CONGRATULATIONS!!!</p>`
 					);
 					// End Game
@@ -299,6 +299,10 @@ $(document).ready(function () {
 					$("#fight-desc").html(
 						`<p>You have defeated ${defenderStats.name}! Choose another enemy to fight.</p>`
 					);
+
+					// Increase hero attack power by base AP
+					updateHeroAP();
+
 					// Reset Defender stats
 					newRound();
 				}
@@ -327,7 +331,7 @@ $(document).ready(function () {
 					// Update fight description with stats
 					$("#fight-desc").show().html(
 						`<p>You attacked ${defenderStats.name} for ${heroStats.ap} damage.</p>
-				<p> ${defenderStats.name} attacked you back for ${defenderStats.cap} damage.</p>`
+							<p> ${defenderStats.name} attacked you back for ${defenderStats.cap} damage.</p>`
 					);
 					// Increase hero attack power by base AP
 					updateHeroAP();
@@ -347,6 +351,6 @@ $(document).ready(function () {
 	// [X] Start game function
 	$("#restart").on("click", function () {
 		startGame();
-	})
 
+	})
 })
