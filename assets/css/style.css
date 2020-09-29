@@ -17,6 +17,7 @@
 body {
     /* Typography */
     font-family: 'Bungee', cursive;
+    vertical-align: middle;
     /* Visual */
     background: url("../images/star-wars-destroyer-bridge.jpg");
     background-repeat: no-repeat;
@@ -24,15 +25,38 @@ body {
     background-color: #000000;
 }
 
+html, body {
+    height: 100%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: .5rem;
+}
+
 /* Character Styles */
+
+.section-title {
+    padding: 5px;
+}
+
+.select-char {
+    margin: 5px;
+    display: inline-block;
+}
+
 .select-char-img {
     width: 120px;
     height: 80px;
     padding: 2px;
-    align-content:center;
+    align-content: center;
 }
 
 .char-name, .char-img, .hp {
-    text-align:center;
-    width:150px;
+    text-align: center;
+    width: 150px;
+}
+
+.attack {
+    width: 200px;
+    font-size: 28px;
 }

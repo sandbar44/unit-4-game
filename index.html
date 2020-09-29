@@ -37,75 +37,89 @@
     <div class="container">
 
         <!-- Header Title -->
-      <div class="jumbotron" id="header-title">
-        <h1 class="text-center">Star Wars RPG!</h1>
-        <h4 class="text-center" id="instructions">Select a character to begin.</h4>
-      </div>
+        <div class="jumbotron" id="header-title">
+            <h1 class="text-center">Star Wars RPG!</h1>
+            <h4 class="text-center" id="instructions">Select a character to begin.</h4>
+        </div>
 
         <!-- Select Characters -->
-        <div class="row" id="select-char-div">
-            <button class="card select-char" id="char1" >
-                <div class="char-name">Rey</div>
-                <div class="char-img">
-                    <img class="select-char-img" src="assets/images/rey.jpg"></img>
-                </div>
-                <div class="hp">120</div>
-            </button>
-            <button class="card select-char" id="char2">
-                <div class="char-name">Boba Fett</div>
-                <div class="char-img">
-                    <img class="select-char-img" src="assets/images/bobafett.jpg"></img>
-                </div>
-                <div class="hp">100</div>
-            </button>
-            <button class="card select-char" id="char3">
-                <div class="char-name">Count Dooku</div>
-                <div class="char-img">
-                    <img class="select-char-img" src="assets/images/countdooku.jpg"></img>
-                </div>
-                <div class="hp">150</div>
-            </button>
-            <button class="card select-char" id="char4">
-                <div class="char-name">Darth Maul</div>
-                <div class="char-img">
-                    <img class="select-char-img" src="assets/images/darthmaul.jpeg"></img>
-                </div>
-                <div class="hp">100</div>
-            </button>
+        <div class="row">
+            <div class="col-lg-12" id="select-char-div">
+                <button class="select-char" id="char1">
+                    <div class="char-name">Rey</div>
+                    <div class="char-img">
+                        <img class="select-char-img" src="assets/images/rey.jpg"></img>
+                    </div>
+                    <div class="hp" id="char1-hp">120</div>
+                </button>
+                <button class="select-char" id="char2">
+                    <div class="char-name">Boba Fett</div>
+                    <div class="char-img">
+                        <img class="select-char-img" src="assets/images/bobafett.jpg"></img>
+                    </div>
+                    <div class="hp" id="char2-hp">100</div>
+                </button>
+                <button class="select-char" id="char3">
+                    <div class="char-name">Count Dooku</div>
+                    <div class="char-img">
+                        <img class="select-char-img" src="assets/images/countdooku.jpg"></img>
+                    </div>
+                    <div class="hp" id="char3-hp">150</div>
+                </button>
+                <button class="select-char" id="char4">
+                    <div class="char-name">Darth Maul</div>
+                    <div class="char-img">
+                        <img class="select-char-img" src="assets/images/darthmaul.jpeg"></img>
+                    </div>
+                    <div class="hp" id="char4-hp">100</div>
+                </button>
 
+            </div>
         </div>
 
         <!-- Your Character -->
         <div class="row">
-            <div id="your-char">
-                <h4 class="bg-light rounded">Your Character</h4>
+            <div class="col-lg-6">
+                <h4 class="bg-light rounded section-title">Your Character</h4>
+                <div id="your-char">
+                </div>
             </div>
         </div>
 
         <!-- Available Enemies -->
         <div class="row">
-            <div id="avail-enemies">
-                <h4 class="bg-light rounded">Available Enemies</h4>
+            <div class="col-lg-6">
+                <div id="avail-enemies">
+                    <h4 class="bg-light rounded section-title">Available Enemies</h4>
+                </div>
             </div>
         </div>
 
         <!-- Fight Section -->
         <div class="row">
-            <div id="fight">
-                <h4 class="bg-light rounded">Fight Section</h4>
+            <div class="col-lg-6">
+                <div id="fight">
+                    <h4 class="bg-light rounded section-title">Fight Section</h4>
+                    <button class="btn btn-danger attack">Attack</button>
+                </div>
             </div>
         </div>
 
         <!-- Defender -->
         <div class="row">
-            <div id="defender">
-                <h4 class="bg-light rounded">Defender</h4> 
+            <div class="col-lg-6">
+                <div id="defender">
+                    <h4 class="bg-light rounded section-title">Defender</h4>
+                </div>
+                <!-- Fight Description -->
+                <div id="fight-desc" class="alert alert-warning">
+                </div>
+                <div id="restart">
+                    <button class="btn btn-primary" id="restart">Restart</button>
+                </div>
             </div>
         </div>
-
-        <!-- Fight Description -->
-        <div class="row" id="fight-desc">
-        </div>
+    </div>
 
     </div>
 
